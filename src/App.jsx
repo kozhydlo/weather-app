@@ -1,22 +1,13 @@
-import './App.css'
-import {useRef} from "react";
-import {getWeather} from "./store/WeatherSlice.js";
-import {useDispatch} from "react-redux";
+import InputBlock from "./components/InputBlock.jsx";
+import OutputBlock from "./components/OutputBlock.jsx";
 
 function App() {
-    let inputRef = useRef(null)
-    const dispatch = useDispatch()
-    const clickHandler = () => {
-        dispatch(getWeather(inputRef.current.value))
-    }
-  return (
-    <>
-        <div>
-            <input ref={inputRef} type="text" placeholder="Enter City"/>
-            <button onClick={clickHandler}>Get Weather</button>
-        </div>
-    </>
-  )
+    return (
+        <>
+            <InputBlock />
+            <OutputBlock />
+        </>
+    )
 }
 
 export default App
