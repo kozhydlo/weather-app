@@ -51,20 +51,23 @@ export const getWeather = createAsyncThunk(
 const weatherSlice = createSlice({
     name: 'weather',
     initialState: {
-        data: null
+        data: null,
+        isLoading: false,
+        error: '',
     },
     extraReducers (builder) {
         builder.addCase(getWeather.fulfilled, (state, action) => {
-            console.log('Finish loading...')
+            state.isLoading = false
             state.data = action.payload
-
+            state.error = ''
         })
         builder.addCase(getWeather.pending, (state, action) => {
-            console.log('Start loading...')
+            state.error = ''
+            state.isLoading = true
         })
         builder.addCase(getWeather.rejected, (state, action) => {
-            console.log('Finish loading...')
-            console.log(action.error.message)
+            state.isLoading = false
+            state.error = action.error.message
         })
     }
 })
