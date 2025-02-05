@@ -20,7 +20,7 @@ A modern weather forecast application built with **React**, **Vite**, and **Tail
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/weather-app.git
+   git clone ...
    ```
 
 2. Navigate to the project directory:
